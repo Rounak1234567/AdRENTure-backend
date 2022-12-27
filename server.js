@@ -5,12 +5,11 @@ const connect = require("./db")
 const cors = require('cors');
 const port = process.env.PORT || 2345;
 
-app.use(express.json())
 app.use(cors());
+app.use(express.json())
 
 
-
-app.use('/api/cars/' , require('./routes/carsRoutes'))
+app.use('/api/cars/' , require('./routes/carsRoutes'), cors());
 app.use('/api/users/' , require('./routes/usersRoute'))
 app.use('/api/bookings/' , require('./routes/bookingsRoute'))
 
